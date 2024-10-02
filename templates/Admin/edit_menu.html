@@ -1,0 +1,64 @@
+{%extends "Admin/base.html" %}
+{%block title%} Edit Menu {%endblock%}
+{%block content%}
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Edit menu</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Menu</li>
+        <li class="breadcrumb-item active">Edit menu</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  
+  <form method="post" action="{{ url_for('edit_menu', menu_id=menu_item.id) }}" enctype="multipart/form-data">
+    <div class="row mb-3">
+      <label for="inputText" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" value="{{ menu_item.name }}">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Category</label>
+      <div class="col-sm-10">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">Starters</option>
+          <option value="2">Salads</option>
+          <option value="3">Specialty</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" style="height: 100px" value="{{ menu_item.description }}"></textarea>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Price</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" value="{{ menu_item.price }}">
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="file" id="formFile">
+      </div>
+    </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </div>
+</form><!-- End Profile Edit Form -->
+
+</main>
+{%endblock%}
